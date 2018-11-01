@@ -14,7 +14,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:gravity="center"
-        android:text="90+130"
         android:textColor="@android:color/black"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/displayResultado"
@@ -29,7 +28,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:gravity="right"
-        android:text="8"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,7 +114,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button18"
+                android:id="@+id/btn_1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

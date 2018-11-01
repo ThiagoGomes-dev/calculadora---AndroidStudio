@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         btn7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         btn8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,23 +139,26 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         btnponto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 memoria = (String) displayConta.getText();
-                displayConta.setText(memoria + ".'");
+                displayConta.setText(memoria + ".");
 
             }
         });
+
         btnapagar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                memoria = '';
+                memoria = "";
                 displayConta.setText("");
                 displayResultado.setText("");
             }
         });
+
         btnsoma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 displayConta.setText("");
             }
         });
+
         btnsubtracao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
         btnmultiplicao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                operacao = "+";
+                operacao = "*";
                 valor1= Double.parseDouble(displayConta.getText().toString());
                 displayResultado.setText(displayConta.getText().toString());
                 displayConta.setText("");
@@ -189,13 +200,42 @@ public class MainActivity extends AppCompatActivity {
         btnigual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if(displayConta.getText().equals("")) {
-
                     Toast.makeText(getApplicationContext(),
                             "Digite um número!", Toast.LENGTH_LONG).show();
+                }else {
+                   // operacao = "=";
+                    valor2 = Double.parseDouble(displayConta.getText().toString());
+                    displayConta.setText("");
+                    String resultado = calcular(valor1,valor2, operacao);
+                    displayResultado.setText(resultado);
                 }
+
             }
         });
     }
+
+    public String calcular(Double valor1, Double valor2, String operacao){
+
+        Double resultado = 0.0;
+
+        if (operacao.equals("+")){
+            resultado = valor1 + valor2;
+        }else if(operacao.equals("-")){
+            resultado = valor1 - valor2;
+        }else if (operacao.equals("*")){
+            resultado = valor1 * valor2;
+        }else if (operacao.equals("/")){
+            if (valor2 == 0) {
+                Toast.makeText(getApplicationContext(),
+                        "Não é possivel dividir por 0!", Toast.LENGTH_LONG).show();
+            }else {
+                resultado = valor1 / valor2;
+            }
+        }
+
+        return resultado.toString();
+
+    }
+
 }
